@@ -45,21 +45,21 @@ nav a:hover {
 }
 
 .hero {
-  text-align: center;
-  padding: 40px 20px;
+    text-align: center;
+    padding: 40px 20px;
 }
 
 .hero h2 {
-  color: #4e7796;
-  font-family: serif;
-  font-size: 2em;
-  margin-bottom: 10px;
+    color: #4e7796;
+    font-family: serif;
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
 .hero p {
-  color: #042239;
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 1em;
+    color: #042239;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1em;
 }
 
 main {
@@ -201,19 +201,19 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.8em;
-  }
+    .header h1 {
+        font-size: 1.8em;
+    }
 
-  nav a {
-    margin: 0 10px;
-  }
+    nav a {
+        margin: 0 10px;
+    }
 
-  main {
-    padding: 0 10px;
-  }
+    main {
+        padding: 0 10px;
+    }
 
-  button {
-    width: 100%;
-  }
+    button {
+        width: 100%;
+    }
 }
