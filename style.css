@@ -199,3 +199,21 @@ button:hover {
     font-size: 0.9em;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  main {
+    padding: 0 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
