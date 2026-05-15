@@ -79,3 +79,81 @@ PlacesList.prototype.deletePlace = function (location) {
     }
     return false;
 };
+
+
+// ADDRESS BOOK UI
+
+let addressBook = new AddressBook();
+
+// Listen for form submission
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Grab values from form
+  let firstName = document.getElementById("firstName").value.trim();
+  let lastName = document.getElementById("lastName").value.trim();
+  let address = document.getElementById("address").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let email = document.getElementById("email").value.trim();
+
+  // Create new contact object
+  let newContact = new Contact(firstName, lastName, address, phone, email);
+
+  // Add to address book
+  addressBook.addContact(newContact);
+
+  // Refresh the contact list on screen
+  displayContacts();
+
+  // Clear the form on submission
+  document.getElementById("contactForm").reset();
+});
+
+// Display all contacts as clickable names
+function displayContacts() {
+  let contactList = document.getElementById("contactList");
+  contactList.innerHTML = "";
+
+  addressBook.contacts.forEach(function(contact) {
+    let contactDiv = document.createElement("div");
+    contactDiv.classList.add("contact-card");
+    contactDiv.innerText = contact.fullName();
+
+    // Click to view details
+    contactDiv.addEventListener("click", function() {
+      showContactDetail(contact.fullName());
+    });
+
+    contactList.appendChild(contactDiv);
+  });
+}
+
+// Show full details of a selected contact
+function showContactDetail(fullName) {
+  let contact = addressBook.findContact(fullName);
+
+  document.getElementById("detailContent").innerHTML = `
+    <p><strong>Name:</strong> ${contact.fullName()}</p>
+    <p><strong>Address:</strong> ${contact.address}</p>
+    <p><strong>Phone:</strong> ${contact.phone}</p>
+    <p><strong>Email:</strong> ${contact.email}</p>
+  `;
+
+  // Show detail section, hide list
+  document.getElementById("contactDetail").style.display = "block";
+  document.querySelector(".list-section").style.display = "none";
+
+  // Delete button
+  document.getElementById("deleteContact").onclick = function() {
+    addressBook.deleteContact(fullName);
+    document.getElementById("contactDetail").style.display = "none";
+    document.querySelector(".list-section").style.display = "block";
+    displayContacts();
+  };
+
+  // Back button
+  document.getElementById("backButton").onclick = function() {
+    document.getElementById("contactDetail").style.display = "none";
+    document.querySelector(".list-section").style.display = "block";
+  };
+}
