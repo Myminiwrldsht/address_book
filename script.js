@@ -157,3 +157,82 @@ function showContactDetail(fullName) {
     document.querySelector(".list-section").style.display = "block";
   };
 }
+
+
+// PLACES I'VE BEEN UI
+
+let placesList = new PlacesList();
+
+// Listen for form submission
+if (document.getElementById("placeForm")) {
+  document.getElementById("placeForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Grab values from form
+    let location = document.getElementById("location").value.trim();
+    let landmarks = document.getElementById("landmarks").value.trim();
+    let timeOfYear = document.getElementById("timeOfYear").value.trim();
+    let notes = document.getElementById("notes").value.trim();
+
+    // Create new place object
+    let newPlace = new Place(location, landmarks, timeOfYear, notes);
+
+    // Add to places list
+    placesList.addPlace(newPlace);
+
+    // Refresh the places list on screen
+    displayPlaces();
+
+    // Clear the form
+    document.getElementById("placeForm").reset();
+  });
+}
+
+// Display all places as clickable names
+function displayPlaces() {
+  let placesDiv = document.getElementById("placesList");
+  placesDiv.innerHTML = "";
+
+  placesList.places.forEach(function(place) {
+    let placeDiv = document.createElement("div");
+    placeDiv.classList.add("contact-card");
+    placeDiv.innerText = place.location;
+
+    // Click to view details
+    placeDiv.addEventListener("click", function() {
+      showPlaceDetail(place.location);
+    });
+
+    placesDiv.appendChild(placeDiv);
+  });
+}
+
+// Show full details of a selected place
+function showPlaceDetail(location) {
+  let place = placesList.findPlace(location);
+
+  document.getElementById("placeDetailContent").innerHTML = `
+    <p><strong>Location:</strong> ${place.location}</p>
+    <p><strong>Landmarks:</strong> ${place.landmarks}</p>
+    <p><strong>Time of Year:</strong> ${place.timeOfYear}</p>
+    <p><strong>Notes:</strong> ${place.notes}</p>
+  `;
+
+  // Show detail section, hide list
+  document.getElementById("placeDetail").style.display = "block";
+  document.querySelector(".list-section").style.display = "none";
+
+  // Delete button
+  document.getElementById("deletePlace").onclick = function() {
+    placesList.deletePlace(location);
+    document.getElementById("placeDetail").style.display = "none";
+    document.querySelector(".list-section").style.display = "block";
+    displayPlaces();
+  };
+
+  // Back button
+  document.getElementById("backButton").onclick = function() {
+    document.getElementById("placeDetail").style.display = "none";
+    document.querySelector(".list-section").style.display = "block";
+  };
+}
