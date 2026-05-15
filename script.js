@@ -86,76 +86,76 @@ PlacesList.prototype.deletePlace = function (location) {
 let addressBook = new AddressBook();
 
 // Listen for form submission
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  // Grab values from form
-  let firstName = document.getElementById("firstName").value.trim();
-  let lastName = document.getElementById("lastName").value.trim();
-  let address = document.getElementById("address").value.trim();
-  let phone = document.getElementById("phone").value.trim();
-  let email = document.getElementById("email").value.trim();
+    // Grab values from form
+    let firstName = document.getElementById("firstName").value.trim();
+    let lastName = document.getElementById("lastName").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim();
 
-  // Create new contact object
-  let newContact = new Contact(firstName, lastName, address, phone, email);
+    // Create new contact object
+    let newContact = new Contact(firstName, lastName, address, phone, email);
 
-  // Add to address book
-  addressBook.addContact(newContact);
+    // Add to address book
+    addressBook.addContact(newContact);
 
-  // Refresh the contact list on screen
-  displayContacts();
+    // Refresh the contact list on screen
+    displayContacts();
 
-  // Clear the form on submission
-  document.getElementById("contactForm").reset();
+    // Clear the form on submission
+    document.getElementById("contactForm").reset();
 });
 
 // Display all contacts as clickable names
 function displayContacts() {
-  let contactList = document.getElementById("contactList");
-  contactList.innerHTML = "";
+    let contactList = document.getElementById("contactList");
+    contactList.innerHTML = "";
 
-  addressBook.contacts.forEach(function(contact) {
-    let contactDiv = document.createElement("div");
-    contactDiv.classList.add("contact-card");
-    contactDiv.innerText = contact.fullName();
+    addressBook.contacts.forEach(function (contact) {
+        let contactDiv = document.createElement("div");
+        contactDiv.classList.add("contact-card");
+        contactDiv.innerText = contact.fullName();
 
-    // Click to view details
-    contactDiv.addEventListener("click", function() {
-      showContactDetail(contact.fullName());
+        // Click to view details
+        contactDiv.addEventListener("click", function () {
+            showContactDetail(contact.fullName());
+        });
+
+        contactList.appendChild(contactDiv);
     });
-
-    contactList.appendChild(contactDiv);
-  });
 }
 
 // Show full details of a selected contact
 function showContactDetail(fullName) {
-  let contact = addressBook.findContact(fullName);
+    let contact = addressBook.findContact(fullName);
 
-  document.getElementById("detailContent").innerHTML = `
+    document.getElementById("detailContent").innerHTML = `
     <p><strong>Name:</strong> ${contact.fullName()}</p>
     <p><strong>Address:</strong> ${contact.address}</p>
     <p><strong>Phone:</strong> ${contact.phone}</p>
     <p><strong>Email:</strong> ${contact.email}</p>
   `;
 
-  // Show detail section, hide list
-  document.getElementById("contactDetail").style.display = "block";
-  document.querySelector(".list-section").style.display = "none";
+    // Show detail section, hide list
+    document.getElementById("contactDetail").style.display = "block";
+    document.querySelector(".list-section").style.display = "none";
 
-  // Delete button
-  document.getElementById("deleteContact").onclick = function() {
-    addressBook.deleteContact(fullName);
-    document.getElementById("contactDetail").style.display = "none";
-    document.querySelector(".list-section").style.display = "block";
-    displayContacts();
-  };
+    // Delete button
+    document.getElementById("deleteContact").onclick = function () {
+        addressBook.deleteContact(fullName);
+        document.getElementById("contactDetail").style.display = "none";
+        document.querySelector(".list-section").style.display = "block";
+        displayContacts();
+    };
 
-  // Back button
-  document.getElementById("backButton").onclick = function() {
-    document.getElementById("contactDetail").style.display = "none";
-    document.querySelector(".list-section").style.display = "block";
-  };
+    // Back button
+    document.getElementById("backButton").onclick = function () {
+        document.getElementById("contactDetail").style.display = "none";
+        document.querySelector(".list-section").style.display = "block";
+    };
 }
 
 
@@ -165,74 +165,74 @@ let placesList = new PlacesList();
 
 // Listen for form submission
 if (document.getElementById("placeForm")) {
-  document.getElementById("placeForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+    document.getElementById("placeForm").addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // Grab values from form
-    let location = document.getElementById("location").value.trim();
-    let landmarks = document.getElementById("landmarks").value.trim();
-    let timeOfYear = document.getElementById("timeOfYear").value.trim();
-    let notes = document.getElementById("notes").value.trim();
+        // Grab values from form
+        let location = document.getElementById("location").value.trim();
+        let landmarks = document.getElementById("landmarks").value.trim();
+        let timeOfYear = document.getElementById("timeOfYear").value.trim();
+        let notes = document.getElementById("notes").value.trim();
 
-    // Create new place object
-    let newPlace = new Place(location, landmarks, timeOfYear, notes);
+        // Create new place object
+        let newPlace = new Place(location, landmarks, timeOfYear, notes);
 
-    // Add to places list
-    placesList.addPlace(newPlace);
+        // Add to places list
+        placesList.addPlace(newPlace);
 
-    // Refresh the places list on screen
-    displayPlaces();
+        // Refresh the places list on screen
+        displayPlaces();
 
-    // Clear the form
-    document.getElementById("placeForm").reset();
-  });
+        // Clear the form
+        document.getElementById("placeForm").reset();
+    });
 }
 
 // Display all places as clickable names
 function displayPlaces() {
-  let placesDiv = document.getElementById("placesList");
-  placesDiv.innerHTML = "";
+    let placesDiv = document.getElementById("placesList");
+    placesDiv.innerHTML = "";
 
-  placesList.places.forEach(function(place) {
-    let placeDiv = document.createElement("div");
-    placeDiv.classList.add("contact-card");
-    placeDiv.innerText = place.location;
+    placesList.places.forEach(function (place) {
+        let placeDiv = document.createElement("div");
+        placeDiv.classList.add("contact-card");
+        placeDiv.innerText = place.location;
 
-    // Click to view details
-    placeDiv.addEventListener("click", function() {
-      showPlaceDetail(place.location);
+        // Click to view details
+        placeDiv.addEventListener("click", function () {
+            showPlaceDetail(place.location);
+        });
+
+        placesDiv.appendChild(placeDiv);
     });
-
-    placesDiv.appendChild(placeDiv);
-  });
 }
 
 // Show full details of a selected place
 function showPlaceDetail(location) {
-  let place = placesList.findPlace(location);
+    let place = placesList.findPlace(location);
 
-  document.getElementById("placeDetailContent").innerHTML = `
+    document.getElementById("placeDetailContent").innerHTML = `
     <p><strong>Location:</strong> ${place.location}</p>
     <p><strong>Landmarks:</strong> ${place.landmarks}</p>
     <p><strong>Time of Year:</strong> ${place.timeOfYear}</p>
     <p><strong>Notes:</strong> ${place.notes}</p>
   `;
 
-  // Show detail section, hide list
-  document.getElementById("placeDetail").style.display = "block";
-  document.querySelector(".list-section").style.display = "none";
+    // Show detail section, hide list
+    document.getElementById("placeDetail").style.display = "block";
+    document.querySelector(".list-section").style.display = "none";
 
-  // Delete button
-  document.getElementById("deletePlace").onclick = function() {
-    placesList.deletePlace(location);
-    document.getElementById("placeDetail").style.display = "none";
-    document.querySelector(".list-section").style.display = "block";
-    displayPlaces();
-  };
+    // Delete button
+    document.getElementById("deletePlace").onclick = function () {
+        placesList.deletePlace(location);
+        document.getElementById("placeDetail").style.display = "none";
+        document.querySelector(".list-section").style.display = "block";
+        displayPlaces();
+    };
 
-  // Back button
-  document.getElementById("backButton").onclick = function() {
-    document.getElementById("placeDetail").style.display = "none";
-    document.querySelector(".list-section").style.display = "block";
-  };
+    // Back button
+    document.getElementById("backButton").onclick = function () {
+        document.getElementById("placeDetail").style.display = "none";
+        document.querySelector(".list-section").style.display = "block";
+    };
 }

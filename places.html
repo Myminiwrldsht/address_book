@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Places You've Been</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places You've Been</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="header">
-    <h1>Places You've Been</h1>
-    <p>Keep track of all the places you have visited</p>
-    <nav>
-      <a href="index.html">Address Book</a>
-      <a href="places.html">Places You've Been</a>
-    </nav>
-  </div>
+    <div class="header">
+        <h1>Places You've Been</h1>
+        <p>Keep track of all the places you have visited</p>
+        <nav>
+            <a href="index.html">Address Book</a>
+            <a href="places.html">Places You've Been</a>
+        </nav>
+    </div>
 
-  <main>
-    <section class="form-section">
-      <h2>Add a Place</h2>
-      <form id="placeForm">
-        <label for="location">Location:</label>
-        <input type="text" id="location" required><br><br>
+    <main>
+        <section class="form-section">
+            <h2>Add a Place</h2>
+            <form id="placeForm">
+                <label for="location">Location:</label>
+                <input type="text" id="location" required><br><br>
 
-        <label for="landmarks">Landmarks:</label>
-        <input type="text" id="landmarks" required><br><br>
+                <label for="landmarks">Landmarks:</label>
+                <input type="text" id="landmarks" required><br><br>
 
-        <label for="timeOfYear">Time of Year:</label>
-        <input type="text" id="timeOfYear" placeholder="e.g. Summer, December" required><br><br>
+                <label for="timeOfYear">Time of Year:</label>
+                <input type="text" id="timeOfYear" placeholder="e.g. Summer, December" required><br><br>
 
-        <label for="notes">Notes:</label>
-        <textarea id="notes" rows="3" placeholder="Any memories or details..."></textarea><br><br>
+                <label for="notes">Notes:</label>
+                <textarea id="notes" rows="3" placeholder="Any memories or details..."></textarea><br><br>
 
-        <button type="submit">Add Place</button>
-      </form>
-    </section>
+                <button type="submit">Add Place</button>
+            </form>
+        </section>
 
-    <section class="list-section">
-      <h2>Places</h2>
-      <div id="placesList"></div>
-    </section>
+        <section class="list-section">
+            <h2>Places</h2>
+            <div id="placesList"></div>
+        </section>
 
-    <section class="detail-section" id="placeDetail" style="display:none;">
-      <h2>Place Details</h2>
-      <div id="placeDetailContent"></div>
-      <button id="deletePlace">Delete Place</button>
-      <button id="backButton">Back</button>
-    </section>
-  </main>
+        <section class="detail-section" id="placeDetail" style="display:none;">
+            <h2>Place Details</h2>
+            <div id="placeDetailContent"></div>
+            <button id="deletePlace">Delete Place</button>
+            <button id="backButton">Back</button>
+        </section>
+    </main>
 
-  <div class="footer">
-    <p>&copy; 2025 Lakeisha Maya. All rights reserved.</p>
-  </div>
+    <div class="footer">
+        <p>&copy; 2025 Lakeisha Maya. All rights reserved.</p>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
