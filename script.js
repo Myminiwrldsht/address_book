@@ -40,3 +40,42 @@ AddressBook.prototype.deleteContact = function (fullName) {
     }
     return false;
 };
+
+
+//PLACES I'VE BEEN
+// PLACE CONSTRUCTOR
+function Place(location, landmarks, timeOfYear, notes) {
+    this.location = location;
+    this.landmarks = landmarks;
+    this.timeOfYear = timeOfYear;
+    this.notes = notes;
+}
+
+// PLACES LIST CONSTRUCTOR
+function PlacesList() {
+    this.places = [];
+}
+
+// PROTOTYPE METHODS
+PlacesList.prototype.addPlace = function (place) {
+    this.places.push(place);
+};
+
+PlacesList.prototype.findPlace = function (location) {
+    for (let i = 0; i < this.places.length; i++) {
+        if (this.places[i].location === location) {
+            return this.places[i];
+        }
+    }
+    return false;
+};
+
+PlacesList.prototype.deletePlace = function (location) {
+    for (let i = 0; i < this.places.length; i++) {
+        if (this.places[i].location === location) {
+            this.places.splice(i, 1);
+            return true;
+        }
+    }
+    return false;
+};
