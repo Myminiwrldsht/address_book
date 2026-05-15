@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f8fb;
+}
+
+.header {
+  background-color: #042239;
+  text-align: center;
+  padding: 20px;
+}
+
+.header h1 {
+  font-family: serif;
+  font-size: 2.5em;
+  color: #4e7796;
+}
+
+.header p {
+  color: #e7e3f3;
+  font-size: 1em;
+  margin-top: 8px;
+}
+
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 30px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #4e7796;
+  transition: background-color 0.3s ease;
+}
+
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.form-section {
+  background: rgba(43, 120, 235, 0.034);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.form-section h2 {
+  color: #4e7796;
+  font-family: serif;
+  margin-bottom: 20px;
+}
+
+label {
+  font-family: 'Segoe UI', sans-serif;
+  color: #042239;
+  display: block;
+  margin-top: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: inherit;
+  outline-color: #4e7796;
+}
+
+button {
+  background-color: #4e7796;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 15px;
+  border: 2px solid #4e7796;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: transparent;
+  color: #4e7796;
+  border: 2px solid #4e7796;
+  transition: all 0.3s ease;
+}
+
+.list-section {
+  margin-bottom: 30px;
+}
+
+.list-section h2 {
+  color: #4e7796;
+  font-family: serif;
+  margin-bottom: 20px;
+}
+
+.contact-card {
+  background-color: #edf2f8;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  color: #042239;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  background-color: #4e7796;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.detail-section {
+  background: rgba(43, 120, 235, 0.034);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.detail-section h2 {
+  color: #4e7796;
+  font-family: serif;
+  margin-bottom: 20px;
+}
+
+.detail-section p {
+  font-family: 'Segoe UI', sans-serif;
+  color: #042239;
+  margin-bottom: 12px;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+#deleteContact, #deletePlace {
+  background-color: #c0392b;
+  border-color: #c0392b;
+  margin-right: 10px;
+}
+
+#deleteContact:hover, #deletePlace:hover {
+  background-color: transparent;
+  color: #c0392b;
+  border: 2px solid #c0392b;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #7a9bb5;
+  font-size: 0.9em;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
