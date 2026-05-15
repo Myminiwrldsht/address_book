@@ -44,6 +44,24 @@ nav a:hover {
     transition: background-color 0.3s ease;
 }
 
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h2 {
+  color: #4e7796;
+  font-family: serif;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #042239;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1em;
+}
+
 main {
     max-width: 800px;
     margin: 40px auto;
